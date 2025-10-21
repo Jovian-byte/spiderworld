@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiderWorld | Comment</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Background Web */
+    .web {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        repeating-radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.05) 0px,
+          rgba(255, 255, 255, 0.05) 2px,
+          transparent 2px,
+          transparent 40px),
+        repeating-conic-gradient(
+          rgba(255, 255, 255, 0.05) 0deg 1deg,
+          transparent 1deg 10deg);
+      animation: spin 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Title */
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      z-index: 10;
+      text-shadow: 0 0 20px #ff004c, 0 0 35px #c800ff;
+      animation: glowText 3s ease-in-out infinite;
+      margin-bottom: 30px;
+    }
+
+    @keyframes glowText {
+      0%, 100% { text-shadow: 0 0 15px #ff004c, 0 0 30px #c800ff; }
+      50% { text-shadow: 0 0 25px #ff004c, 0 0 50px #c800ff; }
+    }
+
+    /* Form Container */
+    .form-container {
+      position: relative;
+      z-index: 10;
+      width: 400px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 25px rgba(255, 0, 76, 0.3);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ff99ff;
+      text-shadow: 0 0 10px #c800ff;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      box-shadow: 0 0 10px #ff004c, 0 0 20px #c800ff;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    /* Submit button shaped like a web */
+    .submit-btn {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 20px auto 0 auto;
+      background:
+        radial-gradient(circle, rgba(255,0,76,0.7) 10%, rgba(200,0,255,0.2) 90%);
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 20px #ff004c;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .submit-btn::before, .submit-btn::after {
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 255, 255, 0.4);
+      animation: rotateWeb 10s linear infinite;
+    }
+
+    .submit-btn::after {
+      width: 60%;
+      height: 60%;
+      top: 20%;
+      left: 20%;
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+      animation: rotateWebReverse 8s linear infinite;
+    }
+
+    @keyframes rotateWeb {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes rotateWebReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    .submit-btn:hover {
+      box-shadow: 0 0 40px #c800ff, 0 0 70px #ff004c;
+      transform: scale(1.1);
+    }
+
+    .submit-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 0 10px #ff004c, 0 0 30px #c800ff;
+      letter-spacing: 1px;
+    }
+
+    /* Small footer */
+    .footer {
+      position: relative;
+      z-index: 10;
+      margin-top: 30px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #ff004c;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #c800ff;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="web"></div>
+
+  <h1>THANK YOU FOR VISIT 🕸️</h1>
+
+  <div class="form-container">
+    <form action="#" method="post">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+
+      <label for="comment">Your Comment</label>
+      <textarea id="comment" name="comment" placeholder="Write your thoughts..." required></textarea>
+
+      <button type="submit" class="submit-btn">
+        <span class="submit-text">SEND</span>
+      </button>
+    </form>
+  </div>
+
+  <div class="footer">
+    <p>Return to <a href="index.html">SpiderWorld Home</a></p>
+  </div>
+</body>
+</html>

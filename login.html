@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider Web Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Spider web background */
+    .web {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background:
+        repeating-radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.05) 0px,
+          rgba(255, 255, 255, 0.05) 2px,
+          transparent 2px,
+          transparent 40px),
+        repeating-conic-gradient(
+          rgba(255, 255, 255, 0.05) 0deg 1deg,
+          transparent 1deg 10deg);
+      animation: spin 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Login box */
+    .login-box {
+      position: relative;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 40px 35px;
+      width: 350px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .login-box input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 14px;
+    }
+
+    .login-box input::placeholder {
+      color: #bbb;
+    }
+
+    .login-box button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(45deg, #ff004c, #c800ff);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: linear-gradient(45deg, #c800ff, #ff004c);
+      transform: scale(1.05);
+    }
+
+    .login-box p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .login-box a {
+      color: #ff004c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="web"></div>
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="#">
+      <input type="email" placeholder="Email Address" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+    <p>Don’t have an account? <a href="spider.html">Register</a></p>
+  </div>
+</body>
+</html>

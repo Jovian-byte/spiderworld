@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiderWorld | Food & Growth</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+      color: white;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* Web background */
+    .web {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        repeating-radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.05) 0px,
+          rgba(255, 255, 255, 0.05) 2px,
+          transparent 2px,
+          transparent 40px),
+        repeating-conic-gradient(
+          rgba(255, 255, 255, 0.05) 0deg 1deg,
+          transparent 1deg 10deg);
+      animation: spin 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Container */
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 25px rgba(255, 0, 76, 0.2);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px #ff004c, 0 0 35px #c800ff;
+    }
+
+    h2 {
+      color: #ff99ff;
+      margin-top: 25px;
+      text-shadow: 0 0 10px #c800ff;
+    }
+
+    p {
+      margin-top: 10px;
+      color: #ddd;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .spider-plate {
+      display: block;
+      width: 250px;
+      height: 250px;
+      margin: 40px auto;
+      background: radial-gradient(circle, #ff004c, #000);
+      border-radius: 50%;
+      box-shadow: 0 0 25px #ff004c;
+      animation: pulse 3s ease-in-out infinite;
+      position: relative;
+    }
+
+    .spider-plate::before,
+    .spider-plate::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ff004c;
+      border-radius: 50%;
+      top: 100px;
+      left: 90px;
+      box-shadow: 50px 0 #ff004c;
+      animation: blink 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 25px #ff004c; }
+      50% { box-shadow: 0 0 45px #c800ff; }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #ff004c;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #c800ff;
+      text-decoration: underline;
+    }
+
+    /* Floating mini webs */
+    .miniweb {
+      position: fixed;
+      width: 120px;
+      height: 120px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    .miniweb.one { top: 10%; left: 8%; }
+    .miniweb.two { bottom: 15%; right: 10%; }
+    .miniweb.three { top: 25%; right: 25%; }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(25px) rotate(15deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="web"></div>
+  <div class="miniweb one"></div>
+  <div class="miniweb two"></div>
+  <div class="miniweb three"></div>
+
+  <div class="container">
+    <h1>Spider Food, Growth & Environment</h1>
+
+    <div class="spider-plate"></div>
+
+    <h2>🍽️ What Do Spiders Eat?</h2>
+    <p>
+      Spiders are natural hunters. Most of them feed on insects like mosquitoes, flies, moths, and ants. 
+      Some larger species even eat small lizards or frogs. They use their webs or quick jumping speed to catch prey.
+      Once the prey is caught, spiders inject venom to paralyze it, then release digestive enzymes to liquefy the body 
+      — allowing them to suck out the nutrients.
+    </p>
+
+    <h2>🕷️ How Spiders Grow</h2>
+    <p>
+      Spiders grow through a process called <strong>molting</strong>. Their hard outer skin (exoskeleton) doesn’t stretch, 
+      so when they grow too large, they shed it and form a new one underneath. Each molt makes them stronger and bigger 
+      until they reach full adult size.
+    </p>
+
+    <h2>💞Reproduction</h2>
+    <p>
+      Spiders have a unique and careful mating process. Male spiders perform gentle dances or vibrations on the female’s web 
+      to show peaceful intentions. After mating, females lay eggs in silk sacs, protecting them until they hatch. 
+      The baby spiders, called <em>spiderlings</em>, eventually crawl out and spread by riding the wind — a process called <em>ballooning</em>.
+    </p>
+
+    <h2>🌍 Importance in the Environment</h2>
+    <p>
+      Spiders are vital to our planet’s balance. They control insect populations naturally, reducing pests that spread diseases 
+      or damage crops. Without spiders, the number of harmful insects would rise rapidly. They’re silent heroes of nature — 
+      helping keep our ecosystem clean and healthy.
+    </p>
+
+    <div class="footer">
+      <p>Return to <a href="index.html">SpiderWorld Home</a> | Read <a href="history.html">History</a></p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiderWorld | Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+
+    /* Spider Web Background (from your first version) */
+    .web {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background:
+        repeating-radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.05) 0px,
+          rgba(255, 255, 255, 0.05) 2px,
+          transparent 2px,
+          transparent 40px),
+        repeating-conic-gradient(
+          rgba(255, 255, 255, 0.05) 0deg 1deg,
+          transparent 1deg 10deg);
+      animation: spin 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Title */
+    h1 {
+      position: relative;
+      z-index: 10;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #ff004c, 0 0 30px #c800ff;
+      animation: glowText 3s ease-in-out infinite;
+    }
+
+    @keyframes glowText {
+      0%, 100% { text-shadow: 0 0 10px #ff004c, 0 0 20px #c800ff; }
+      50% { text-shadow: 0 0 25px #ff004c, 0 0 45px #c800ff; }
+    }
+
+    /* Spider string */
+    .string {
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.2);
+      left: 50%;
+      transform: translateX(-50%);
+      animation: sway 5s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(-50%) rotate(2deg); }
+      50% { transform: translateX(-50%) rotate(-2deg); }
+    }
+
+    /* Spider */
+    .spider {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: #111;
+      border-radius: 50%;
+      border: 2px solid #ff004c;
+      box-shadow: 0 0 10px #ff004c;
+      animation: crawlDown 5s ease-in-out infinite alternate, sway 5s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    .spider::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateX(-50%);
+    }
+
+    /* Spider eyes */
+    .eye {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ff004c;
+      border-radius: 50%;
+      top: 12px;
+      box-shadow: 14px 0 #ff004c;
+      animation: blink 3s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    @keyframes crawlDown {
+      0% { top: 0px; }
+      100% { top: 150px; }
+    }
+
+    /* Buttons */
+    .buttons {
+      position: relative;
+      z-index: 10;
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      background: linear-gradient(45deg, #ff004c, #c800ff);
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .buttons a:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #c800ff, #ff004c);
+    }
+
+    /* Decorative Lines (Spider Legs around text) */
+    .leg {
+      position: absolute;
+      height: 2px;
+      width: 100px;
+      background: rgba(255, 255, 255, 0.15);
+      z-index: 5;
+      animation: fadeIn 5s ease-in-out infinite alternate;
+    }
+
+    .leg.one { top: 45%; left: 25%; transform: rotate(20deg); }
+    .leg.two { top: 45%; right: 25%; transform: rotate(-20deg); }
+    .leg.three { top: 55%; left: 28%; transform: rotate(-20deg); }
+    .leg.four { top: 55%; right: 28%; transform: rotate(20deg); }
+
+    @keyframes fadeIn {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Subtext */
+    p {
+      position: relative;
+      z-index: 10;
+      color: #ccc;
+      margin-top: 10px;
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="web"></div>
+
+  <div class="string"></div>
+  <div class="spider">
+    <div class="eye"></div>
+  </div>
+
+  <div class="leg one"></div>
+  <div class="leg two"></div>
+  <div class="leg three"></div>
+  <div class="leg four"></div>
+
+  <h1>Welcome to SpiderWorld</h1>
+  <p>Where the web connects everything 🕸️</p>
+
+  <div class="buttons">
+    <a href="spider.html">Login</a>
+    <a href="spider.html">Register</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiderWorld | History & Species</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+      color: white;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* Web Background (your favorite) */
+    .web {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        repeating-radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.05) 0px,
+          rgba(255, 255, 255, 0.05) 2px,
+          transparent 2px,
+          transparent 40px),
+        repeating-conic-gradient(
+          rgba(255, 255, 255, 0.05) 0deg 1deg,
+          transparent 1deg 10deg);
+      animation: spin 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Main container */
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 76, 0.2);
+      backdrop-filter: blur(8px);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      text-shadow: 0 0 15px #ff004c, 0 0 35px #c800ff;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #ff99ff;
+      margin-top: 25px;
+      text-shadow: 0 0 10px #c800ff;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-top: 10px;
+      color: #ddd;
+      text-align: justify;
+    }
+
+    .spider-img {
+      display: block;
+      margin: 30px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, #ff004c, #000);
+      border-radius: 50%;
+      position: relative;
+      animation: pulse 3s ease-in-out infinite;
+      box-shadow: 0 0 20px #c800ff;
+    }
+
+    .spider-img::before,
+    .spider-img::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ff004c;
+      border-radius: 50%;
+      top: 85px;
+      left: 85px;
+      box-shadow: 50px 0 #ff004c;
+      animation: blink 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px #ff004c; }
+      50% { box-shadow: 0 0 40px #c800ff; }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #ff004c;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #c800ff;
+    }
+
+    /* Floating decorative webs */
+    .miniweb {
+      position: fixed;
+      width: 120px;
+      height: 120px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    .miniweb.one { top: 10%; left: 5%; }
+    .miniweb.two { bottom: 15%; right: 10%; }
+    .miniweb.three { top: 20%; right: 25%; }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(20px) rotate(20deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="web"></div>
+  <div class="miniweb one"></div>
+  <div class="miniweb two"></div>
+  <div class="miniweb three"></div>
+
+  <div class="container">
+    <h1>History & Species of Spiders</h1>
+
+    <div class="spider-img"></div>
+
+    <h2>🕷️ The Origin of Spiders</h2>
+    <p>
+      Spiders are ancient creatures that first appeared over 380 million years ago. 
+      They evolved from a group of arachnid ancestors that lived in water, adapting to 
+      land with silk-spinning abilities that gave them an incredible survival advantage.
+    </p>
+
+    <h2>🕸️ The Web Weavers</h2>
+    <p>
+      One of the most iconic abilities of spiders is their silk. A single strand of spider silk 
+      is stronger than steel of the same thickness. They use it to build webs, create egg sacs, 
+      and even to float in the air — a process called <em>ballooning</em>.
+    </p>
+
+    <h2>🌍 Spider Species Around the World</h2>
+    <p>
+      There are more than <strong>48,000 species</strong> of spiders across the globe, 
+      ranging from the tiny <em>Jumping Spider</em> to the massive <em>Goliath Birdeater</em> of South America. 
+      Each species has unique behaviors — some hunt with stealth, others with speed, and a few 
+      create mesmerizing web structures that look like art.
+    </p>
+
+    <h2>⚡ Fun Fact</h2>
+    <p>
+      The silk of a spider can stretch up to five times its length without breaking, 
+      and scientists are studying it to create new types of bulletproof fabrics and 
+      medical stitches.
+    </p>
+
+    <div class="footer">
+      <p>Return to <a href="index.html">SpiderWorld Home</a></p>
+    </div>
+  </div>
+</body>
+</html>
